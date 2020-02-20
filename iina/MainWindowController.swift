@@ -1403,10 +1403,6 @@ class MainWindowController: PlayerWindowController {
     player.events.emit(.windowMoved, data: window.frame)
   }
 
-  func windowDidChangeScreen(_ notification: Notification) {
-    videoView.updateDisplayLink()
-  }
-
   func windowDidBecomeKey(_ notification: Notification) {
     window!.makeFirstResponder(window!)
     if Preference.bool(for: .pauseWhenInactive) && isPausedDueToInactive {

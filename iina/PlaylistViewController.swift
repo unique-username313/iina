@@ -383,7 +383,6 @@ class PlaylistViewController: NSViewController, NSTableViewDataSource, NSTableVi
 
   @IBAction func clearPlaylistBtnAction(_ sender: AnyObject) {
     player.clearPlaylist()
-    reloadData(playlist: true, chapters: false)
     player.sendOSD(.clearPlaylist)
   }
 
@@ -620,7 +619,6 @@ class PlaylistViewController: NSViewController, NSTableViewDataSource, NSTableVi
       }
     }
     playlistTableView.deselectAll(nil)
-    player.postNotification(.iinaPlaylistChanged)
   }
 
   @IBAction func contextMenuDeleteFileAfterPlayback(_ sender: NSMenuItem) {

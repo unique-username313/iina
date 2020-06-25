@@ -82,7 +82,8 @@ class MPVController: NSObject {
     MPVOption.Window.fullscreen: MPV_FORMAT_FLAG,
     MPVOption.Window.ontop: MPV_FORMAT_FLAG,
     MPVOption.Window.windowScale: MPV_FORMAT_DOUBLE,
-    MPVProperty.mediaTitle: MPV_FORMAT_STRING
+    MPVProperty.mediaTitle: MPV_FORMAT_STRING,
+    MPVOption.GPURendererOptions.iccContrast: MPV_FORMAT_INT64
   ]
 
   init(playerCore: PlayerCore) {
@@ -887,6 +888,13 @@ class MPVController: NSObject {
         let intData = Int(data)
         player.info.saturation = intData
         player.sendOSD(.saturation(intData))
+      }
+      
+    case MPVOption.GPURendererOptions.iccContrast:
+      needReloadQuickSettingsView = false
+      if let data = UnsafePointer<Int64>(OpaquePointer(property.data))?.pointee {
+        let intData = Int(data)
+        player.sendOSD(.iccContrast(intData))
       }
 
     // following properties may change before file loaded

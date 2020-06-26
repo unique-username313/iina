@@ -141,6 +141,7 @@ class MenuController: NSObject, NSMenuDelegate {
   // Subtitle
   @IBOutlet weak var subMenu: NSMenu!
   @IBOutlet weak var quickSettingsSub: NSMenuItem!
+  @IBOutlet weak var hideSubtitles: NSMenuItem!
   @IBOutlet weak var cycleSubtitles: NSMenuItem!
   @IBOutlet weak var subTrackMenu: NSMenu!
   @IBOutlet weak var secondSubTrackMenu: NSMenu!
@@ -339,6 +340,7 @@ class MenuController: NSObject, NSMenuDelegate {
 
     subMenu.delegate = self
     quickSettingsSub.action = #selector(MainWindowController.menuShowSubQuickSettings(_:))
+    hideSubtitles.action = #selector(MainMenuActionHandler.menuToggleHideSubtitles(_:))
     loadExternalSub.action = #selector(MainMenuActionHandler.menuLoadExternalSub(_:))
     subTrackMenu.delegate = self
     secondSubTrackMenu.delegate = self
@@ -476,6 +478,7 @@ class MenuController: NSObject, NSMenuDelegate {
 
   private func updateSubMenu() {
     let player = PlayerCore.active
+    hideSubtitles.state = PlayerCore.active.info.hideSubtitles ? .on : .off
     subDelayIndicator.title = String(format: NSLocalizedString("menu.sub_delay", comment: "Subtitle Delay:"), player.info.subDelay)
 
     let encodingCode = player.info.subEncoding ?? "auto"
@@ -639,6 +642,7 @@ class MenuController: NSObject, NSMenuDelegate {
       (cycleVideoTracks, false, ["cycle", "video"], false, nil, nil),
       (cycleAudioTracks, false, ["cycle", "audio"], false, nil, nil),
       (cycleSubtitles, false, ["cycle", "sub"], false, nil, nil),
+      (hideSubtitles, false, ["cycle", "sub-visibility"], false, nil, nil),
       (nextChapter, false, ["add", "chapter", "1"], false, nil, nil),
       (previousChapter, false, ["add", "chapter", "-1"], false, nil, nil),
       (pause, false, ["cycle", "pause"], false, nil, nil),

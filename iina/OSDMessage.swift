@@ -67,6 +67,7 @@ enum OSDMessage {
   case foundSub(Int)
   case downloadedSub(String)  // filename
   case savedSub
+  case hideSubtitles(Bool)
   case cannotLogin
   case fileError
   case networkError
@@ -203,6 +204,12 @@ enum OSDMessage {
     case .subScale(let value):
       return (
         String(format: NSLocalizedString("osd.subtitle_scale", comment: "Subtitle Scale: %.2fx"), value),
+        .normal
+      )
+
+    case .hideSubtitles(let enabled):
+      return (
+        String(format: NSLocalizedString("osd.hidesubtitles", comment: "Hide Subtitles: %@"), enabled ? NSLocalizedString("general.on", comment: "On") : NSLocalizedString("general.off", comment: "Off")),
         .normal
       )
 

@@ -74,6 +74,7 @@ class MPVController: NSObject {
     MPVOption.Subtitles.subDelay: MPV_FORMAT_DOUBLE,
     MPVOption.Subtitles.subScale: MPV_FORMAT_DOUBLE,
     MPVOption.Subtitles.subPos: MPV_FORMAT_DOUBLE,
+    MPVOption.Subtitles.subVisibility: MPV_FORMAT_FLAG,
     MPVOption.Equalizer.contrast: MPV_FORMAT_INT64,
     MPVOption.Equalizer.brightness: MPV_FORMAT_INT64,
     MPVOption.Equalizer.gamma: MPV_FORMAT_INT64,
@@ -847,6 +848,15 @@ class MPVController: NSObject {
       needReloadQuickSettingsView = true
       if let data = UnsafePointer<Double>(OpaquePointer(property.data))?.pointee {
         player.sendOSD(.subPos(data))
+      }
+
+    case MPVOption.Subtitles.subVisibility:
+      needReloadQuickSettingsView = true
+      if let data = UnsafePointer<Bool>(OpaquePointer(property.data))?.pointee {
+        if player.info.hideSubtitles == data {
+          player.info.hideSubtitles = !data
+        player.sendOSD(.hideSubtitles(!data))
+        }
       }
 
     case MPVOption.Equalizer.contrast:

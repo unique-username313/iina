@@ -478,7 +478,7 @@ class MenuController: NSObject, NSMenuDelegate {
 
   private func updateSubMenu() {
     let player = PlayerCore.active
-    hideSubtitles.state = PlayerCore.active.info.hideSubtitles ? .on : .off
+    hideSubtitles.state = PlayerCore.active.info.subHidden ? .on : .off
     subDelayIndicator.title = String(format: NSLocalizedString("menu.sub_delay", comment: "Subtitle Delay:"), player.info.subDelay)
 
     let encodingCode = player.info.subEncoding ?? "auto"

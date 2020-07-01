@@ -224,7 +224,7 @@ class QuickSettingViewController: NSViewController, NSTableViewDataSource, NSTab
       let enableTextSettings = !(currSub.isAssSub || currSub.isImageSub)
       [subTextColorWell, subTextSizePopUp, subTextBgColorWell, subTextBorderColorWell, subTextBorderWidthPopUp, subTextFontBtn].forEach { $0.isEnabled = enableTextSettings }
     }
-    hideSubtitlesSwitch.checked = player.info.hideSubtitles
+    hideSubtitlesSwitch.checked = player.info.subHidden
     hideSubtitlesSwitch.action = {
       self.player.toggleHideSubtitles($0)
     }

@@ -135,7 +135,7 @@ class PlaybackInfo {
   var sid: Int?
   var vid: Int?
   var secondSid: Int?
-  var hideSubtitles: Bool = false
+  var subHidden: Bool = false
 
   var subEncoding: String?
 

@@ -853,10 +853,8 @@ class MPVController: NSObject {
     case MPVOption.Subtitles.subVisibility:
       needReloadQuickSettingsView = true
       if let data = UnsafePointer<Bool>(OpaquePointer(property.data))?.pointee {
-        if player.info.hideSubtitles == data {
-          player.info.hideSubtitles = !data
-        player.sendOSD(.hideSubtitles(!data))
-        }
+        player.info.subHidden = !data
+        player.sendOSD(data ? OSDMessage.subtitlesShown : OSDMessage.subtitlesHidden)
       }
 
     case MPVOption.Equalizer.contrast:

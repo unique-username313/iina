@@ -158,6 +158,11 @@ extension MainMenuActionHandler {
     player.sendOSD(.chapter(chapter.title))
   }
 
+  @objc func menuEditionSwitch(_ sender: NSMenuItem) {
+    let index = sender.tag
+    player.playEdition(index)
+  }
+
   @objc func menuChangeTrack(_ sender: NSMenuItem) {
     if let trackObj = sender.representedObject as? (MPVTrack, MPVTrack.TrackType) {
       player.setTrack(trackObj.0.id, forType: trackObj.1)

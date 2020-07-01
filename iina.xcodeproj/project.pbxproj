@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1326717E20852D0D000FA7E2 /* SubChooseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1326718020852D0D000FA7E2 /* SubChooseViewController.xib */; };
+		41BD352124AB6CE200583AED /* MPVEdition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BD352024AB6CE200583AED /* MPVEdition.swift */; };
 		49542975216C34950058F680 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49542974216C34950058F680 /* Cocoa.framework */; };
 		49542978216C34950058F680 /* SafariExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49542977216C34950058F680 /* SafariExtensionHandler.swift */; };
 		49542980216C34950058F680 /* open-in-iina.js in Resources */ = {isa = PBXBuildFile; fileRef = 4954297F216C34950058F680 /* open-in-iina.js */; };
@@ -481,6 +482,7 @@
 		2FE1FCAF1F98D3DB004C4D6B /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = sk; path = sk.lproj/Contribution.rtf; sourceTree = "<group>"; };
 		2FE1FCB01F98D3DB004C4D6B /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/FilterPresets.strings; sourceTree = "<group>"; };
 		2FE1FCB11F98D3DB004C4D6B /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/KeyBinding.strings; sourceTree = "<group>"; };
+		41BD352024AB6CE200583AED /* MPVEdition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPVEdition.swift; sourceTree = "<group>"; };
 		440DDE351E9010420063E211 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		440DDE361E9010420063E211 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/MainWindowController.strings; sourceTree = "<group>"; };
 		440DDE371E9010420063E211 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/QuickSettingViewController.strings; sourceTree = "<group>"; };
@@ -1607,6 +1609,7 @@
 				E3CB75BC1FDACB82004DB10A /* SavedFilter.swift */,
 				845404AB1E43980900B02B12 /* LuaScript.swift */,
 				84C6D3631EB276E9009BF721 /* PlaybackHistory.swift */,
+				41BD352024AB6CE200583AED /* MPVEdition.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -2569,6 +2572,7 @@
 				84F5D4A01E44F9DB0060A838 /* KeyBindingItem.swift in Sources */,
 				84A0BA991D2FAAA700BC8DA1 /* MPVController.swift in Sources */,
 				847557161F406D360006B0FF /* MiniPlayerWindowMenuActions.swift in Sources */,
+				41BD352124AB6CE200583AED /* MPVEdition.swift in Sources */,
 				842F55A51EA17E7E0081D475 /* IINACommand.swift in Sources */,
 				8434BAAD1D5E4546003BECF2 /* SlideUpButton.swift in Sources */,
 				840D47981DFEEE6A000D9A64 /* KeyMapping.swift in Sources */,

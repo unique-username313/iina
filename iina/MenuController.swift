@@ -92,6 +92,8 @@ class MenuController: NSObject, NSMenuDelegate {
   @IBOutlet weak var previousChapter: NSMenuItem!
   @IBOutlet weak var chapter: NSMenuItem!
   @IBOutlet weak var chapterMenu: NSMenu!
+  @IBOutlet weak var editions: NSMenuItem!
+  @IBOutlet weak var editionMenu: NSMenu!
   // Video
   @IBOutlet weak var videoMenu: NSMenu!
   @IBOutlet weak var quickSettingsVideo: NSMenuItem!
@@ -223,6 +225,7 @@ class MenuController: NSObject, NSMenuDelegate {
     fileLoop.action = #selector(MainMenuActionHandler.menuFileLoop(_:))
     playlistMenu.delegate = self
     chapterMenu.delegate = self
+    editionMenu.delegate = self
     playlistLoop.action = #selector(MainMenuActionHandler.menuPlaylistLoop(_:))
     playlistPanel.action = #selector(MainWindowController.menuShowPlaylistPanel(_:))
     chapterPanel.action = #selector(MainWindowController.menuShowChaptersPanel(_:))
@@ -414,6 +417,19 @@ class MenuController: NSObject, NSMenuDelegate {
     }
   }
 
+  private func updateEditionList() {
+    let info = PlayerCore.active.info
+    editionMenu.removeAllItems()
+    for edition in info.editions {
+      let menuTitle = edition.isDefault ? "\(edition.title!) (Default)" : edition.title!
+      let menuItem = NSMenuItem(title: menuTitle, action: #selector(MainMenuActionHandler.menuEditionSwitch(_:)), keyEquivalent: "")
+      menuItem.state = edition.isSelected ? .on : .off
+      menuItem.tag = edition.id
+      menuItem.attributedTitle = NSAttributedString(string: menuTitle, attributes: [.font: NSFont.monospacedDigitSystemFont(ofSize: 0, weight: .regular)])
+      editionMenu.addItem(menuItem)
+    }
+  }
+
   private func updateTracks(forMenu menu: NSMenu, type: MPVTrack.TrackType) {
     let info = PlayerCore.active.info
     menu.removeAllItems()
@@ -571,6 +587,8 @@ class MenuController: NSObject, NSMenuDelegate {
       updatePlaylist()
     } else if menu == chapterMenu {
       updateChapterList()
+    } else if menu == editionMenu {
+      updateEditionList()
     } else if menu == playbackMenu {
       updatePlaybackMenu()
     } else if menu == videoMenu {

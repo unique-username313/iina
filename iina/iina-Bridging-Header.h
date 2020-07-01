@@ -1,4 +1,4 @@
-#define MPV_ENABLE_DEPRECATED 0
+#define MPV_ENABLE_DEPRECATED 1
 
 #import <mpv/client.h>
 #import <mpv/render.h>

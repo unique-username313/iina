@@ -336,6 +336,11 @@ CA
                             <menuItem title="Previous Chapter" id="pqF-SZ-Ifz">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                             </menuItem>
+                            <menuItem isSeparatorItem="YES" id="swX-eT-lQi"/>
+                            <menuItem title="Editions" id="Zj5-gh-lA8">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Editions" id="lfS-R4-FBL"/>
+                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>
@@ -690,6 +695,8 @@ CA
                 <outlet property="deleteCurrentFile" destination="npH-8B-XA4" id="23t-fO-TbK"/>
                 <outlet property="delogo" destination="ArE-2s-JIV" id="zzg-gr-TsG"/>
                 <outlet property="doubleSize" destination="Hal-18-Tnf" id="vnl-Rb-Y3o"/>
+                <outlet property="editionMenu" destination="lfS-R4-FBL" id="T3p-4T-xJu"/>
+                <outlet property="editions" destination="Zj5-gh-lA8" id="Uhh-12-Y8o"/>
                 <outlet property="encodingMenu" destination="Pf6-5i-B1E" id="Gat-gG-pkT"/>
                 <outlet property="fileLoop" destination="D1y-kv-85s" id="xSv-oo-UJa"/>
                 <outlet property="fileMenu" destination="bib-Uj-vzu" id="Faa-yo-0DL"/>

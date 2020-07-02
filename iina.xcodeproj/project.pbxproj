@@ -170,6 +170,7 @@
 		41031A1624AE6A1A00E02925 /* libwebpmux.3.dylib in Copy Dylibs */ = {isa = PBXBuildFile; fileRef = 4103195F24AE6A0800E02925 /* libwebpmux.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		41031A1724AE6A1A00E02925 /* libzstd.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4103195324AE6A0600E02925 /* libzstd.1.dylib */; };
 		41031A1824AE6A1B00E02925 /* libzstd.1.dylib in Copy Dylibs */ = {isa = PBXBuildFile; fileRef = 4103195324AE6A0600E02925 /* libzstd.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		41BD352124AB6CE200583AED /* MPVEdition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BD352024AB6CE200583AED /* MPVEdition.swift */; };
 		49542975216C34950058F680 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49542974216C34950058F680 /* Cocoa.framework */; };
 		49542978216C34950058F680 /* SafariExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49542977216C34950058F680 /* SafariExtensionHandler.swift */; };
 		49542980216C34950058F680 /* open-in-iina.js in Resources */ = {isa = PBXBuildFile; fileRef = 4954297F216C34950058F680 /* open-in-iina.js */; };
@@ -598,6 +599,7 @@
 		4103197424AE6A0B00E02925 /* libavformat.58.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libavformat.58.dylib; path = deps/lib/libavformat.58.dylib; sourceTree = "<group>"; };
 		4103197524AE6A0B00E02925 /* libunistring.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libunistring.2.dylib; path = deps/lib/libunistring.2.dylib; sourceTree = "<group>"; };
 		4103197624AE6A0B00E02925 /* libavfilter.7.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libavfilter.7.dylib; path = deps/lib/libavfilter.7.dylib; sourceTree = "<group>"; };
+		41BD352024AB6CE200583AED /* MPVEdition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPVEdition.swift; sourceTree = "<group>"; };
 		440DDE351E9010420063E211 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		440DDE361E9010420063E211 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/MainWindowController.strings; sourceTree = "<group>"; };
 		440DDE371E9010420063E211 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/QuickSettingViewController.strings; sourceTree = "<group>"; };
@@ -1730,6 +1732,7 @@
 				E3CB75BC1FDACB82004DB10A /* SavedFilter.swift */,
 				845404AB1E43980900B02B12 /* LuaScript.swift */,
 				84C6D3631EB276E9009BF721 /* PlaybackHistory.swift */,
+				41BD352024AB6CE200583AED /* MPVEdition.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -2695,6 +2698,7 @@
 				84F5D4A01E44F9DB0060A838 /* KeyBindingItem.swift in Sources */,
 				84A0BA991D2FAAA700BC8DA1 /* MPVController.swift in Sources */,
 				847557161F406D360006B0FF /* MiniPlayerWindowMenuActions.swift in Sources */,
+				41BD352124AB6CE200583AED /* MPVEdition.swift in Sources */,
 				842F55A51EA17E7E0081D475 /* IINACommand.swift in Sources */,
 				8434BAAD1D5E4546003BECF2 /* SlideUpButton.swift in Sources */,
 				840D47981DFEEE6A000D9A64 /* KeyMapping.swift in Sources */,

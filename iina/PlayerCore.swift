@@ -808,6 +808,10 @@ class PlayerCore: NSObject {
     syncUITime()
   }
 
+  func playEdition(_ ed: Int) {
+    mpv.setInt(MPVProperty.edition, ed)
+  }
+
   func setCrop(fromString str: String) {
     let vwidth = info.videoWidth!
     let vheight = info.videoHeight!
@@ -1060,6 +1064,7 @@ class PlayerCore: NSObject {
     DispatchQueue.main.sync {
       getPlaylist()
       getChapters()
+      getEditions()
       clearAbLoop()
       syncPlayTimeTimer = Timer.scheduledTimer(timeInterval: TimeInterval(AppData.getTimeInterval),
                                                target: self, selector: #selector(self.syncUITime), userInfo: nil, repeats: true)
@@ -1463,6 +1468,22 @@ class PlayerCore: NSObject {
                                startTime: mpv.getDouble(MPVProperty.chapterListNTime(index)),
                                index:     index)
       info.chapters.append(chapter)
+    }
+  }
+
+  func getEditions() {
+    info.editions.removeAll()
+    let editionCount = mpv.getInt(MPVProperty.editionListCount)
+    if editionCount == 0 {
+      return
+    }
+    for index in 0..<editionCount {
+      let title = mpv.getString(MPVProperty.editionListNTitle(index))
+      let id = mpv.getInt(MPVProperty.editionListNId(index))
+      let isDefault = mpv.getString(MPVProperty.editionListNDefault(index)) == "yes"
+      let isSelected = mpv.getInt(MPVProperty.currentEdition) == index
+      let edition = MPVEdition(title: title, id: id, isSelected: isSelected, isDefault: isDefault)
+      info.editions.append(edition)
     }
   }
 

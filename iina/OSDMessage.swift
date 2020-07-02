@@ -59,6 +59,7 @@ enum OSDMessage {
   case saturation(Int)
   case brightness(Int)
   case gamma(Int)
+  case iccContrast(Int)
 
   case addFilter(String)
   case removeFilter
@@ -243,6 +244,13 @@ enum OSDMessage {
       return (
         String(format: NSLocalizedString("osd.video_eq.brightness", comment: "Brightness: %i"), value),
         .withProgress(toPercent(Double(value), 100))
+      )
+      
+        
+    case .iccContrast(let value):
+      return (
+        String(format: NSLocalizedString("osd.icc_contrast", comment: "ICC Contrast: %i"), value),
+        .normal
       )
 
     case .addFilter(let name):

@@ -739,6 +739,11 @@ class PlayerCore: NSObject {
     mainWindow?.quickSettingView.reload()
   }
 
+  func toggleHideSubtitles(_ set: Bool? = nil) {
+    let newState = set ?? mpv.getFlag(MPVOption.Subtitles.subVisibility)
+    mpv.setFlag(MPVOption.Subtitles.subVisibility, !newState)
+  }
+
   func setAudioDelay(_ delay: Double) {
     mpv.setDouble(MPVOption.Audio.audioDelay, delay)
   }

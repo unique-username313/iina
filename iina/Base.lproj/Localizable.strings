@@ -65,6 +65,8 @@
 "osd.sub_found" = "%d subtitles found. Downloading…";
 "osd.sub_downloaded" = "Subtitle downloaded";
 "osd.sub_saved" = "Subtitle saved";
+"osd.sub_hidden" = "Subtitles Hidden";
+"osd.sub_shown" = "Subtitles Shown";
 "osd.network_error" = "Network error";
 "osd.file_error" = "Error reading file";
 "osd.cannot_login" = "Cannot login";

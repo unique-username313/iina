@@ -274,6 +274,10 @@ extension MainMenuActionHandler {
     }
   }
 
+  @objc func menuToggleHideSubtitles(_ sender: NSMenuItem) {
+    player.toggleHideSubtitles()
+  }
+
   @objc func menuChangeSubDelay(_ sender: NSMenuItem) {
     if let delayDelta = sender.representedObject as? Double {
       let newDelay = player.info.subDelay + delayDelta

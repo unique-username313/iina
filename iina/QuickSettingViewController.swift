@@ -86,6 +86,7 @@ class QuickSettingViewController: NSViewController, NSTableViewDataSource, NSTab
 
 
   @IBOutlet weak var subLoadSementedControl: NSSegmentedControl!
+  @IBOutlet weak var hideSubtitlesSwitch: Switch!
   @IBOutlet weak var subDelaySlider: NSSlider!
   @IBOutlet weak var subDelaySliderIndicator: NSTextField!
   @IBOutlet weak var subDelaySliderConstraint: NSLayoutConstraint!
@@ -223,7 +224,10 @@ class QuickSettingViewController: NSViewController, NSTableViewDataSource, NSTab
       let enableTextSettings = !(currSub.isAssSub || currSub.isImageSub)
       [subTextColorWell, subTextSizePopUp, subTextBgColorWell, subTextBorderColorWell, subTextBorderWidthPopUp, subTextFontBtn].forEach { $0.isEnabled = enableTextSettings }
     }
-
+    hideSubtitlesSwitch.checked = player.info.subHidden
+    hideSubtitlesSwitch.action = {
+      self.player.toggleHideSubtitles($0)
+    }
     let currSubScale = player.mpv.getDouble(MPVOption.Subtitles.subScale).clamped(to: 0.1...10)
     let displaySubScale = Utility.toDisplaySubScale(fromRealSubScale: currSubScale)
     subScaleSlider.doubleValue = displaySubScale + (displaySubScale > 0 ? -1 : 1)
